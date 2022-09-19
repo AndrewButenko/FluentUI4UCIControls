@@ -31,10 +31,9 @@ export const DatePickerComponent: React.FunctionComponent<IDatePickerComponentPr
         }}
         formatDate={props.formatDate}
         parseDateFromString={(dateStr: string) => {
-          const m = moment(dateStr, props.dateTimeUserSettings.shortDatePattern);
+          const m = moment(dateStr, props.dateTimeUserSettings.shortDatePattern.toUpperCase());
           if (m.isValid()) {
             props.onValueChanged(m.toDate());
-            setValue(m.toDate());
             return m.toDate();
           }
 
